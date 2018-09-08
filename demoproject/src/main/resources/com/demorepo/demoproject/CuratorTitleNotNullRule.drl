@@ -14,5 +14,5 @@ when
 	$bsdrBody : SdrProgramBody( babelId == $babelId, providerProgramRef.providerName == "Bob" )
 then
 	$bsdrBody.setTitle( $title );
-	System.out.println("From User A clean Variable ::: "+$title);
+	System.out.println("Finally Working Boss!!! ::: "+$title);
 end
