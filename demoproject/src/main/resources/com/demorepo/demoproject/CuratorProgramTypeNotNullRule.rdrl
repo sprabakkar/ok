@@ -1,0 +1,14 @@
+package com.demorepo.demoproject;
+
+import com.tivo.metadata.ace.models.sdr.SdrProgramBody;
+
+rule "CuratorProgramTypeNotNullRule"
+	dialect "mvel"
+	no-loop true
+	lock-on-active true
+	when
+		$cProgBdy : SdrProgramBody( $babelId : babelId != null , providerProgramRef.providerName == "TiVo" , $programType : programType != null )
+		$bProgBdy : SdrProgramBody( babelId == $babelId , providerProgramRef.providerName == "Papa" )
+	then
+		$bProgBdy.setProgramType( $programType );
+end

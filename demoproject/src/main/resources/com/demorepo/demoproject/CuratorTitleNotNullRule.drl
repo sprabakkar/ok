@@ -1,0 +1,18 @@
+package com.demorepo.demoproject;
+
+import java.lang.Number;
+import com.tivo.metadata.ace.models.sdr.SdrProgram;
+import com.tivo.metadata.ace.models.sdr.SdrProgramBody;
+import com.tivo.metadata.ace.models.sdr.SdrVideoProgramProviderRef;
+import com.tivo.metadata.ace.bestofbreed.BobSessionContext;
+
+
+rule "CuratorTitleNotNullRule"
+dialect "mvel"
+when
+	$csdrBody : SdrProgramBody( $babelId: babelId, providerProgramRef.providerName == "TiVo", $title: title != null)
+	$bsdrBody : SdrProgramBody( babelId == $babelId, providerProgramRef.providerName == "Bob" )
+then
+	$bsdrBody.setTitle( $title );
+	System.out.println("From User A clean(prabakar) Variable ::: "+$title);
+end
