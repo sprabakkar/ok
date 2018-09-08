@@ -14,5 +14,5 @@ when
 	$bsdrBody : SdrProgramBody( babelId == $babelId, providerProgramRef.providerName == "Bob" )
 then
 	$bsdrBody.setTitle( $title );
-	System.out.println("This is really great!!!!WOOO!!! ::: "+$title);
+	System.out.println("Balalalalalala!!!! "+$title);
 end
